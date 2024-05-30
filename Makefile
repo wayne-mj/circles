@@ -1,5 +1,5 @@
 FC=gfortran
-#FFLAGS=-ffree-form -O3 -Wall -Wextra
+FFLAGS=-O3 -Wall -Wextra
 SRC=circles.f90
 OBJ=${SRC:.f90=.o}
 BASE=${SRC:.f90=}
