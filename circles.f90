@@ -7,15 +7,17 @@ program circles
     implicit none
     ! Define the kind of real number to use
     !integer, parameter :: sp = selected_real_kind(p=6)  ! (4)  !kind(1.0)
-    integer, parameter :: dp = selected_real_kind(p=15) ! (8)  !kind(1.0d0)
+    !integer, parameter :: dp = selected_real_kind(p=15) ! (8)  !kind(1.0d0)
     !integer, parameter :: qp = selected_real_kind(p=33) ! (16) !kind(1.0q0)
 
-    real(dp) :: radius, pi, height
+    !real(dp) :: radius, pi, height
+    real(8) :: radius, pi, height
     character(len=100) :: input_line
     integer :: choice, io_status
     logical :: done = .false.
 
-    pi = 4 * atan(1.0_dp)                               ! 3.14159265358979323846
+    !pi = 4 * atan(1.0_dp)                               ! 3.14159265358979323846
+    pi = 4 * atan(1.0)                                   ! 3.14159265358979323846
 
     call clearscr()
 
@@ -112,56 +114,70 @@ program circles
 
     ! Function to calculate the area of a circle
     function area(radius, pi) result(a)
-        real(dp), intent(in) :: radius, pi
-        real(dp) :: a
+        !real(dp), intent(in) :: radius, pi
+        !real(dp) :: a
+        real(8), intent(in) :: radius, pi
+        real(8) :: a
 
         a = pi * (radius**2)
     end function area
 
     ! Function to calculate the circumference of a circle
     function circumference(radius, pi) result(c)
-        real(dp), intent(in) :: radius, pi
-        real(dp) :: c
+        !real(dp), intent(in) :: radius, pi
+        !real(dp) :: c
+        real(8), intent(in) :: radius, pi
+        real(8) :: c
 
         c = 2 * pi * radius
     end function circumference
 
     ! Function to calculate the volume of a sphere
     function volumeofSphere(radius, pi) result(v)
-        real(dp), intent(in) :: radius, pi
-        real(dp) :: v
+        !real(dp), intent(in) :: radius, pi
+        !real(dp) :: v
+        real(8), intent(in) :: radius, pi
+        real(8) :: v
 
         v = (4.0 / 3.0) * pi * radius**3
     end function volumeofSphere
 
     ! Function to calculate the volume of a cylinder
     function volumeofCylinder(radius, height, pi) result(v)
-        real(dp), intent(in) :: radius, pi, height
-        real(dp) :: v
+        !real(dp), intent(in) :: radius, pi, height
+        !real(dp) :: v
+        real(8), intent(in) :: radius, pi, height
+        real(8) :: v
 
         v = height * area(radius, pi)        
     end function volumeofCylinder
 
     ! Function to calculate the volume of a cone
     function volumeofCone(radius, height, pi) result(v)
-        real(dp), intent(in) :: radius, pi, height
-        real(dp) :: v
+        !real(dp), intent(in) :: radius, pi, height
+        !real(dp) :: v
+        real(8), intent(in) :: radius, pi, height
+        real(8) :: v
 
         v = (pi * (radius**2) * height) / 3.0
     end function volumeofCone
 
     ! Function to calculate the surface area of a cone
     function surfaceAreaCone(radius,height,pi) result(area)
-        real(dp), intent(in) :: radius, pi, height
-        real(dp) :: area
+        !real(dp), intent(in) :: radius, pi, height
+        !real(dp) :: area
+        real(8), intent(in) :: radius, pi, height
+        real(8) :: area
 
         area = (pi * radius) * (radius + (sqrt(radius**2 + height**2)))
     end function surfaceAreaCone
 
     ! Function to calculate the area of an ellipse
     function areaofEllipse(a,b,pi) result(area)
-        real(dp), intent(in) :: a, b, pi
-        real(dp) :: area
+        !real(dp), intent(in) :: a, b, pi
+        !real(dp) :: area
+        real(8), intent(in) :: a, b, pi
+        real(8) :: area
 
         area = pi * a * b
     end function areaofEllipse
